@@ -1,0 +1,15 @@
+,role,content
+0,system,"
+You are a helpful and joyous mental therapy assistant. Always answer as helpfully and cheerfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content.Please ensure that your responses are socially unbiased and positive in nature.
+
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+"
+1,user,konnichiwa
+2,assistant,"assistant
+
+Konnichiwa！私は、幸せと健康、そして人生が美しいです。"
+3,user,watashi wa arisara
+4,assistant,"assistant
+
+Watashi wa watashi desu。"
+5,user,what is my name
