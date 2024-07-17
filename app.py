@@ -1,9 +1,10 @@
-import csv
 import os
-from threading import Thread
 from typing import Iterator
 import gradio as gr
-import pandas as pd
+from model import get_input_token_length, get_LLAMA_response_stream, get_LLAMA_response
+import datetime
+import chromadb
+from toolz import pipe
 
 MAX_MAX_NEW_TOKENS = 2048
 DEFAULT_MAX_NEW_TOKENS = 1024
@@ -13,11 +14,25 @@ You are a helpful and joyous mental therapy assistant. Always answer as helpfull
 """
 
 DESCRIPTION = """
-# LLama-3-Mental-Therapy-Chatbot
+# Arisara-Mental-Therapy-Chatbot
 """
 LICENSE = "open-source"
 
-from model import get_input_token_length, get_LLAMA_response_stream
+#Setuo DB
+client = chromadb.PersistentClient(path="chat_history")
+
+collection = client.get_or_create_collection("chat_history")
+
+
+def add_chat_history(conversation):
+  timestamp = datetime.datetime.utcnow()
+  timestamp=str(timestamp)
+  collection.add(
+    documents = [f"{conversation}"],
+    ids = [f"{timestamp}"])
+  print('save history')
+
+
 def generate(
     message: str,
     chat_history: list[tuple[str, str]],
@@ -40,16 +55,16 @@ def generate(
         
         
         generator = get_LLAMA_response_stream(conversation, max_new_tokens, temperature, top_p, top_k)
-
-
+        result = ''
         for response in generator:
-            yield response
+           yield response[11:]
+           result+=response[11:]
+        add_chat_history(f'{message}->{result}')
+        print('yield!')
 
-        df = pd.DataFrame(conversation)
-        df.to_csv('conversation.csv')
 
-
-
+        
+        
 
 chat_interface = gr.ChatInterface(
     fn=generate,
@@ -94,3 +109,4 @@ with gr.Blocks(css="style.css") as demo:
     chat_interface.render()
 if __name__ == "__main__":
     demo.queue(max_size=20).launch(share=True)
+
