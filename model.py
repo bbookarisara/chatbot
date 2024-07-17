@@ -47,7 +47,7 @@ def get_LLAMA_response_stream(
         top_k: int = 50) -> Iterator[str]:
     
     prompt = tokenizer.apply_chat_template(messages, tokenize=False)
-    inputs = tokenizer(prompt, return_tensors='pt', add_special_tokens=False).to('cpu')
+    inputs = tokenizer(prompt, return_tensors='pt', add_special_tokens=False).to('cuda')
 
     
     if len(inputs["input_ids"]) > MAX_INPUT_TOKEN_LENGTH:
@@ -81,7 +81,7 @@ def get_LLAMA_response(
         top_k: int = 50) -> str:
     
     prompt = tokenizer.apply_chat_template(messages, tokenize=False)
-    inputs = tokenizer(prompt, return_tensors="pt").to("cpu")
+    inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
     input_ids = inputs["input_ids"]
     
     if len(input_ids) > MAX_INPUT_TOKEN_LENGTH:
