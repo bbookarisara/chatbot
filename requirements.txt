@@ -1,0 +1,10 @@
+huggingface_hub==0.22.2
+transformers
+peft
+torch
+chromadb
+toolz
+datetime
+gradio
+bitsandbytes==0.42.0
+accelerate==0.32.1
