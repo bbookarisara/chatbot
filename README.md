@@ -33,6 +33,15 @@ browse database locally through [DB Browser for SQLite](https://sqlitebrowser.or
 
 > After running **Chatbot Application**, you can monitor database through **DB Browser for SQLite** as following example figures.
 
+monitor 2 processes
+![Screenshot from 2024-07-19 19-46-34](https://github.com/user-attachments/assets/41bc3918-8a68-4782-9fc1-a69125f7d161)
+
+test for chat application
+![Screenshot from 2024-07-19 19-43-32](https://github.com/user-attachments/assets/b857a6e1-1edf-47a3-a4b6-857565878a62)
+
+test for database
+![Screenshot from 2024-07-19 19-44-36](https://github.com/user-attachments/assets/1ea505d6-b559-4203-8b3e-47a763d22029)
+
 ## Deploy Chatbot Application
 
 1. Download all files on [My Repository](https://github.com/bbookarisara/chatbot/)
@@ -61,4 +70,4 @@ python3 app.py
   ```bash
   demo.queue(max_size=20).launch(share=True)
 ```
-![Screenshot from 2024-07-19 19-18-05](https://github.com/user-attachments/assets/3a88799d-75d7-4b2a-a7d0-ab417d4dac72)
+![Screenshot from 2024-07-19 19-42-17](https://github.com/user-attachments/assets/8e09684a-9a49-4de8-837e-974d6bc0e8dc)
