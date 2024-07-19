@@ -33,7 +33,7 @@ browse database locally through [DB Browser for SQLite](https://sqlitebrowser.or
 
 > After running **Chatbot Application**, you can monitor database through **DB Browser for SQLite** as following example figures.
 
-monitor 2 processes
+monitor 2 processes through checking the terminal (It will display checkpoints for both processes!)
 ![Screenshot from 2024-07-19 19-46-34](https://github.com/user-attachments/assets/41bc3918-8a68-4782-9fc1-a69125f7d161)
 
 test for chat application
