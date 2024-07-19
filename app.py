@@ -4,7 +4,6 @@ import gradio as gr
 from model import get_input_token_length, get_LLAMA_response_stream, get_LLAMA_response
 import datetime
 import chromadb
-from toolz import pipe
 
 MAX_MAX_NEW_TOKENS = 2048
 DEFAULT_MAX_NEW_TOKENS = 1024
@@ -18,10 +17,9 @@ DESCRIPTION = """
 """
 LICENSE = "open-source"
 
-#Setuo DB
-client = chromadb.PersistentClient(path="chat_history")
-
-collection = client.get_or_create_collection("chat_history")
+#Setup DB locally
+client = chromadb.PersistentClient(path="chat_history") #set persistent client path
+collection = client.get_or_create_collection("chat_history") #set collection's name
 
 
 def add_chat_history(conversation):
@@ -53,14 +51,17 @@ def generate(
         if(get_input_token_length(conversation) > MAX_INPUT_TOKEN_LENGTH):
             raise gr.InterfaceError(f"The accumulated input is too long ({get_input_token_length(conversation)} > {MAX_INPUT_TOKEN_LENGTH}). Clear your chat history and try again.")
         
-        
+        #Altering use between 'get_LLAMA_response_stream' and 'get_LLAMA_response'
+        #In this case, responses will be a streaming for asynchronous manner and continuously real-time interaction
+        #Otherwise, response will be a single complete response generated from input messages at once. 
         generator = get_LLAMA_response_stream(conversation, max_new_tokens, temperature, top_p, top_k)
+        
         result = ''
         for response in generator:
            yield response[11:]
            result+=response[11:]
-        add_chat_history(f'{message}->{result}')
-        print('yield!')
+        add_chat_history(f'{message}->{result}') #check point if chat history is saved to database
+        print('yield!') #check point if response is generated 
 
 
         
@@ -109,4 +110,3 @@ with gr.Blocks(css="style.css") as demo:
     chat_interface.render()
 if __name__ == "__main__":
     demo.queue(max_size=20).launch(share=True)
-
