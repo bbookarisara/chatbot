@@ -20,6 +20,8 @@ This project consists of **main 3 parts**:
  - [PDF_DataMaker](https://colab.research.google.com/drive/1aFkK1nSwW0YRDZUgiJEbRbQveymNvQL1?usp=sharing)
  - [Fine-Tuning Model](https://colab.research.google.com/drive/17FsRHlL8DenRD5tBcGifLuSBVytJlT8A?usp=sharing) - ***T4 GPU runtime***
 
+***Your personal HuggingFace_Token and WANDB_API_KEY is need for running the notebooks***
+   
 ## Database Monitoring
 **Database** = [ChromaDB](https://docs.trychroma.com/getting-started)
 ```bash
