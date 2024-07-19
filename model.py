@@ -1,16 +1,14 @@
 from threading import Thread
 from typing import Iterator, List, Dict
-from transformers import (AutoModelForCausalLM, AutoTokenizer, TextIteratorStreamer, BitsAndBytesConfig)
+from transformers import (AutoTokenizer, TextIteratorStreamer, BitsAndBytesConfig)
 from huggingface_hub import login
 from peft import AutoPeftModelForCausalLM
-import torch
 
-hugging_face_token = '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'
-login(token=hugging_face_token) # Use the login function from huggingface_hub
+
+# Configurations for 4-bit quantization
 
 MAX_INPUT_TOKEN_LENGTH = 4096
 
-# Configurations for 4-bit quantization
 use_4bit = True
 device_map = {"": 0}  # Ensures model is loaded on the GPU
 device = 'cuda:0'
@@ -20,14 +18,9 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_compute_dtype="float16",
     bnb_4bit_use_double_quant=False,
 )
-###arisara
-# model_name = "bbookarisara/llama-3-8b-arisara"
-# model = AutoPeftModelForCausalLM.from_pretrained(model_name)
-#llama3
-# model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
-# model = AutoModelForCausalLM.from_pretrained(model_name,quantization_config=bnb_config,device_map=device_map)
-###japanese_arisara
-model_name = "bbookarisara/llama-3-8b-japanese-arisara"
+
+#set up model
+model_name = "bbookarisara/new-llama-3-8b-japanese-arisara"
 model = AutoPeftModelForCausalLM.from_pretrained(model_name,quantization_config=bnb_config,device_map=device_map)
 
 
@@ -72,7 +65,7 @@ def get_LLAMA_response_stream(
         outputs.append(text)
         yield ''.join(outputs)
 
-#Function to get response
+#Function to get response string
 def get_LLAMA_response(
         messages: List[Dict[str, str]],
         max_new_tokens: int = 1024,
