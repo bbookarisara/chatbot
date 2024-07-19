@@ -18,7 +18,7 @@ This project consists of **main 3 parts**:
 **colab notebook link for further study** :
  - [DataMaker](https://colab.research.google.com/drive/1QDjrvao2fI0NfvN_GyDnf39QeGJglFJh?usp=sharing)
  - [PDF_DataMaker](https://colab.research.google.com/drive/1aFkK1nSwW0YRDZUgiJEbRbQveymNvQL1?usp=sharing)
- - [Fine-Tuning Model](https://colab.research.google.com/drive/1ECcCBW8g2zRxMFopvqPQGEzqSfJFeIIg?usp=sharing) - ***T4 GPU runtime***
+ - [Fine-Tuning Model](https://colab.research.google.com/drive/17FsRHlL8DenRD5tBcGifLuSBVytJlT8A?usp=sharing) - ***T4 GPU runtime***
 
 ## Database Monitoring
 **Database** = [ChromaDB](https://docs.trychroma.com/getting-started)
