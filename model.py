@@ -21,7 +21,7 @@ bnb_config = BitsAndBytesConfig(
 
 #set up model
 
-model_name = "bbookarisara/arisara_llama3_for_mental_therapy"
+model_name = "bbookarisara/arisara_llama3_8b_for_mental_therapy"
 model = AutoModelForCausalLM.from_pretrained(model_name,quantization_config=bnb_config,device_map=device_map)
 
 
