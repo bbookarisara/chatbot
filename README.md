@@ -47,13 +47,25 @@ Set up by reading the instructions in the [README](https://github.com/hiyouga/LL
 
 > In this case, **Alpaca Forma**t is used for the supervised fine-tuning dataset.  
 
- 1. format data from [DataMaker notebook](https://colab.research.google.com/drive/1mGV1MnFb7plmwFo_YB1HwgXIxF_7hwBo?usp=sharing)
+ 1. format data from [DataMaker notebook](https://colab.research.google.com/drive/1mGV1MnFb7plmwFo_YB1HwgXIxF_7hwBo?usp=sharing) and save data to `spft_format.json`
 2. import it to the `LLaMA-Factory/data`
 3. update `LLaMA-Factory/data/dataset_info.json`
+`
+"supervised": {
+ "file_name":"spft_format.json",
+  "columns": {
+    "prompt": "instruction",
+    "response": "output"
+  }
+}
+`
+<img width="485" alt="dataset_info" src="https://github.com/user-attachments/assets/fb324e2c-0e6a-4098-91a7-7393f76cfea7">
+
 
 **Warnings**:
 - Use `Fp16` instead of `bf16` if the training machine is not A100.
-- For running on Colab or other servers, ensure `share=True` in `src/llamafactory/webui/interface.py`
+- For running on Colab or other servers, ensure `share=True` in `src/webui.py`
+<img width="725" alt="webui" src="https://github.com/user-attachments/assets/8006a823-5ef7-4afb-91bc-4ac476e8c4a9">
 
 
 ### Running the Server
