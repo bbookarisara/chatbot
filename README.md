@@ -52,18 +52,18 @@ Set up by reading the instructions in the [README](https://github.com/hiyouga/LL
 3. update `LLaMA-Factory/data/dataset_info.json`
 
 
-`"supervised": {
+"supervised": {
  "file_name":"spft_format.json",
   "columns": {
     "prompt": "instruction",
     "response": "output"
   }
-}`
+}
+
 <img width="485" alt="dataset_info" src="https://github.com/user-attachments/assets/fb324e2c-0e6a-4098-91a7-7393f76cfea7">
 
 
 **Warnings**:
-- Use `Fp16` instead of `bf16` if the training machine is not A100.
 - For running on Colab or other servers, ensure `share=True` in `src/webui.py`
 <img width="725" alt="webui" src="https://github.com/user-attachments/assets/8006a823-5ef7-4afb-91bc-4ac476e8c4a9">
 
@@ -82,6 +82,7 @@ Set up by reading the instructions in the [README](https://github.com/hiyouga/LL
     
     -   Add your **custom dataset** and **adjust parameters** in the training section.
     -  Monitor the loss function graph to see how the loss decreases with each epoch.
+    -  Use `Fp16` instead of `bf16` if the training machine is not A100.
 <img width="1266" alt="model_config" src="https://github.com/user-attachments/assets/d419ac32-3a8c-4784-bf3d-3d3d92ff4f9f">
 <img width="1242" alt="traininig_config" src="https://github.com/user-attachments/assets/fad98ce8-d108-456b-9efa-0783e85e3a8d">
 <img width="1213" alt="lora_config" src="https://github.com/user-attachments/assets/6c3df038-a918-4f19-a998-92784e67594a">
