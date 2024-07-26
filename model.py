@@ -1,6 +1,6 @@
 from threading import Thread
 from typing import Iterator, List, Dict
-from transformers import (AutoTokenizer, TextIteratorStreamer, BitsAndBytesConfig)
+from transformers import (AutoTokenizer,AutoModelForCausalLM, TextIteratorStreamer, BitsAndBytesConfig)
 from huggingface_hub import login
 from peft import AutoPeftModelForCausalLM
 
@@ -20,8 +20,9 @@ bnb_config = BitsAndBytesConfig(
 )
 
 #set up model
-model_name = "bbookarisara/new-llama-3-8b-japanese-arisara"
-model = AutoPeftModelForCausalLM.from_pretrained(model_name,quantization_config=bnb_config,device_map=device_map)
+
+model_name = "bbookarisara/arisara_llama3_for_mental_therapy"
+model = AutoModelForCausalLM.from_pretrained(model_name,quantization_config=bnb_config,device_map=device_map)
 
 
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True,use_fast=False,add_eos_token=True)
