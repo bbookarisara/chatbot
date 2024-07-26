@@ -86,6 +86,7 @@ Set up by reading the instructions in the [README](https://github.com/hiyouga/LL
 <img width="1266" alt="model_config" src="https://github.com/user-attachments/assets/d419ac32-3a8c-4784-bf3d-3d3d92ff4f9f">
 <img width="1242" alt="traininig_config" src="https://github.com/user-attachments/assets/fad98ce8-d108-456b-9efa-0783e85e3a8d">
 <img width="1213" alt="lora_config" src="https://github.com/user-attachments/assets/6c3df038-a918-4f19-a998-92784e67594a">
+<img width="1212" alt="loss_func" src="https://github.com/user-attachments/assets/9eb8788f-c302-4ad5-a4e6-5fa754d6704f">
 
 4.  **Evaluate and Predict**:
     
