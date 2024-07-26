@@ -8,9 +8,7 @@ import chromadb
 MAX_MAX_NEW_TOKENS = 2048
 DEFAULT_MAX_NEW_TOKENS = 1024
 MAX_INPUT_TOKEN_LENGTH = int(os.getenv("MAX_INPUT_TOKEN_LENGTH", "4096"))
-DEFAULT_SYSTEM_PROMPT = """
-You are a helpful and joyous mental therapy assistant. Always answer as helpfully and cheerfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content.Please ensure that your responses are socially unbiased and positive in nature.\n\nIf a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
-"""
+DEFAULT_SYSTEM_PROMPT = """あなたは親切で楽しい精神療法助手です。安全でありながら、できるだけ親切かつ元気に答えてください。あなたの答えは、有害、非倫理的、人種差別主義者、性差別主義者、毒性、危険、または違法な内容を含めるべきではありません。あなたの回答が社会的に偏りがなく、本質的に前向きであることを確認してください。質問が意味をなさない場合、または事実上一貫性がない場合は、正しいものに答えるのではなく、理由を説明してください。質問に対する答えがわからない場合は、虚偽の情報を共有しないでください。"""
 
 DESCRIPTION = """
 # Arisara-Mental-Therapy-Chatbot
@@ -58,8 +56,8 @@ def generate(
         
         result = ''
         for response in generator:
-           yield response[11:]
-           result+=response[11:]
+           yield response
+           result+=response
         add_chat_history(f'{message}->{result}') #check point if chat history is saved to database
         print('yield!') #check point if response is generated 
 
