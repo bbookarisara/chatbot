@@ -50,15 +50,15 @@ Set up by reading the instructions in the [README](https://github.com/hiyouga/LL
  1. format data from [DataMaker notebook](https://colab.research.google.com/drive/1mGV1MnFb7plmwFo_YB1HwgXIxF_7hwBo?usp=sharing) and save data to `spft_format.json`
 2. import it to the `LLaMA-Factory/data`
 3. update `LLaMA-Factory/data/dataset_info.json`
-`
-"supervised": {
+
+
+`"supervised": {
  "file_name":"spft_format.json",
   "columns": {
     "prompt": "instruction",
     "response": "output"
   }
-}
-`
+}`
 <img width="485" alt="dataset_info" src="https://github.com/user-attachments/assets/fb324e2c-0e6a-4098-91a7-7393f76cfea7">
 
 
