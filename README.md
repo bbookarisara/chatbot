@@ -24,7 +24,7 @@ For data used in both methods, a **DataMaker notebook** is provided [here](https
   - For `spft_format.json`, download it through the [DataMaker notebook](https://colab.research.google.com/drive/1mGV1MnFb7plmwFo_YB1HwgXIxF_7hwBo?usp=sharing).
   - **cbt_interview_text.pdf** is required to make fine-tuning data.
 
-## Traditional Method
+### Traditional Method
 
 - **Model**: [bbookarisara/new-llama-3-8b-japanese-arisara](https://huggingface.co/bbookarisara/new-llama-3-8b-japanese-arisara)
 - **Pretrained Model**: `haqishen/Llama-3-8B-Japanese-Instruct`
@@ -36,7 +36,7 @@ For data used in both methods, a **DataMaker notebook** is provided [here](https
 - *The traditional method* adds '**PeftModel**' in the 2 last snippet of the notebook; use `peft.AutoPeftModelForCausalLM` instead of `transformers.AutoModelForCausalLM` when loading.
 - *The LLaMA Factory method* only loads model using `transformers.AutoModelForCausalLM` instead of   *peft.AutoPeftModelForCausalLM* and requires an `config.json`. instead of *adapter_config.json*
 
-## LLaMA Factory
+### LLaMA Factory
 
 Set up by reading the instructions in the [README](https://github.com/hiyouga/LLaMA-Factory).
 
